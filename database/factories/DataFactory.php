@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,9 +17,11 @@ class DataFactory extends Factory
      */
     public function definition()
     {
+        $user = User::where('id', 1)->first();
         return [
             'title' => $this->faker->words(5, true),
-            'description' => $this->faker->sentence(10),
+            'description' => $this->faker->sentence(45),
+            'author'=> $user->id
         ];
     }
 }

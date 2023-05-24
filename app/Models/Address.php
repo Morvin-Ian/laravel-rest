@@ -4,15 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Sanctum\HasApiTokens;
- 
 
-class Data extends Model
+class Address extends Model
 {
-    use HasFactory, HasApiTokens;
-
+    use HasFactory;
 
     public function user(){
-        return $this->belongsTo(User::class, 'author');
+        return $this->belongsTo(User::class, 'user_id');
+
     }
 }
