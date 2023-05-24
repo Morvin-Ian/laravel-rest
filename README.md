@@ -36,11 +36,11 @@ php artisan serve
 
 ## Routes 
 
-http://127.0.0.1:8000/api/register
-http://127.0.0.1:8000/api/login
+    http://127.0.0.1:8000/api/register
+    http://127.0.0.1:8000/api/login
 
 
-Requires  Authenitacation (Bearer Authentiction)
-http://127.0.0.1:8000/api/data/
-http://127.0.0.1:8000/api/data/{id}
+    Requires  Authenitacation (Bearer Authentiction)
+    http://127.0.0.1:8000/api/data/
+    http://127.0.0.1:8000/api/data/{id}
 ```
