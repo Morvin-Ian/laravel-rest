@@ -43,13 +43,51 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    // One to One relationships
     public function address(){
         return $this->hasOne(Address::class, 'user_id');
 
     }
 
-
+    // One to Many relationships
     public function user(){
         return $this->hasMany(Data::class, 'author');
     }
+
+    // Many to Many relationships
+    // Must utilize a pivot table - In this instance (friends_user - [follows the alphabetical naming convention of the two models])
+    public function friends(){
+        // Pivot table does not provide timestamps by default, thus the "withTimestamps" is required
+        return $this->belongsToMany(Friends::class, 'friends_user', 'user_id', 'friends_id')->withTimestamps();
+    }
+
+
+    // $friend = App\Models\Friends::first();
+    // $user = App\Models\User::first();
+
+    // Adding a relationship
+    // $user->friends()->attach($friend);
+    
+    // Deleting a relationship
+    //$user->friends()->detach($friend) does th opposite 
+    
+    // Updating a relationship
+    // $user->friends()->sync([new tag ids]);
+
+    // Assume we had an additional field "mutual" in the pivot table. To attach it would be as followes
+    // $user->friends()->attach([
+    //     $friend =>
+    //     [
+    //      'mutual'=>True
+    //      ]
+    //     ]);
+
+    // To access the mutual value during a call, the function above must ahnge to :
+
+    // public function friends(){
+    //     return $this->belongsToMany(Friends::class, 'friends_user', 'user_id', 'friends_id')
+    //     ->withTimestamps()
+    //     ->withPivot('mutual');
+    // }
+    
 }

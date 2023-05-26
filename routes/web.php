@@ -14,5 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    // App\Models\Friends::create(
+    //     [
+    //     'name' => 'Evans',
+    //     'age' => 18
+    //     ]
+    // );
+
+    // App\Models\Friends::create(
+    //     [
+    //     'name' => 'Vincent',
+    //     'age' => 20
+    //     ]
+    // );
+
+
+
     return view('welcome');
 });
