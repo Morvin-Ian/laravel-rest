@@ -43,4 +43,5 @@ php artisan serve
     Requires  Authenitacation (Bearer Authentiction)
     http://127.0.0.1:8000/api/data/
     http://127.0.0.1:8000/api/data/{id}
+    http://127.0.0.1:8000/api/friends/{id}
 ```

@@ -22,6 +22,7 @@ Route::controller(AuthController::class)->group(function(){
 Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('/data', [DataController::class, 'data']);
     Route::get('/data/{id}', [DataController::class, 'show']);
+    Route::get('/friends/{id}', [DataController::class, 'friends']);
 
 
 });

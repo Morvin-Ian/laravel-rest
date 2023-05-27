@@ -28,6 +28,13 @@ Route::get('/', function () {
     //     ]
     // );
 
+    $friend = App\Models\Friends::first();
+    $user = App\Models\User::first();
+
+    // Adding a relationship
+    $user->friends()->attach($friend);
+    
+
 
 
     return view('welcome');

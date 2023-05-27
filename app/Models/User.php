@@ -58,7 +58,9 @@ class User extends Authenticatable
     // Must utilize a pivot table - In this instance (friends_user - [follows the alphabetical naming convention of the two models])
     public function friends(){
         // Pivot table does not provide timestamps by default, thus the "withTimestamps" is required
-        return $this->belongsToMany(Friends::class, 'friends_user', 'user_id', 'friends_id')->withTimestamps();
+        return $this->belongsToMany(Friends::class, 'friends_user', 'user_id', 'friends_id')
+        ->using(UserFriends::class)
+        ->withTimestamps();
     }
 
 
@@ -89,5 +91,7 @@ class User extends Authenticatable
     //     ->withTimestamps()
     //     ->withPivot('mutual');
     // }
+
+    // Finally, To handle table events related to the Pivot table, another model must be created -> "UserFriends" but add to to the above function i.e ->using(..)
     
 }
